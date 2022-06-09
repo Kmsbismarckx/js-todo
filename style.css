@@ -2,7 +2,6 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  text-transform: uppercase;
   font-family:  sans-serif;
   background-color: #eee;
 }
@@ -13,6 +12,9 @@ body {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 80px;
   box-shadow: 0px 1px 1px 0px #ccc;
   margin-bottom: 20px;
@@ -21,6 +23,51 @@ body {
 
 .header-logo img {
   height: 80px;
+}
+
+.work-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.work-links a {
+  width: 80px;
+  height: 50px;
+  font-size: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.work-links a:hover {
+  transform: scale(1.2);
+}
+
+.work-links a:active {
+  transform: scale(1);
+  transition: none;
+}
+
+
+.work-links .crm {
+  background: white url('crm_logo.svg') no-repeat 50%;
+}
+
+.work-links .hotline {
+  background: white url('hotline_logo.svg') no-repeat 50%;
+  background-size: 50px 50px;
+}
+
+.work-links .tables {
+  background: white url('tables_logo.svg') no-repeat 50%;
+  background-size: 50px;
+}
+
+.work-links .location {
+  background: white url('location_logo.svg') no-repeat 50%;
+  background-size: 50px;
 }
 
 .list {
@@ -39,9 +86,9 @@ body {
   justify-content: space-between;
   align-items: center;
   border: 1px solid;
+  box-sizing: border-box;
   background-color: #00aeef;
-  opacity: 1;
-  border-radius: 5px;
+  border-radius: 25px;
   border-color: white;
   box-sizing: border-box;
   width: 100%;
@@ -51,13 +98,21 @@ body {
   transition: all 0.6s ease;
 }
 
+.checklist-item span {
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  display: inline-block;
+  word-wrap: break-word;
+  max-width: 850px;
+}
+
 .checklist-item label {
   display: flex;
+  width: 990px;
   justify-content: space-between;
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
-  width: 100%;
   margin-right: 10px;
 }
 
@@ -87,6 +142,7 @@ body {
   left: 0px;
   width: 40px;
   height: 40px;
+  box-shadow: 0px 0px 2px 2px #ccc;
   background-color: white;
   border-radius: 50%;
   transition: all 0.6s ease;
@@ -162,11 +218,28 @@ body {
   border-color: #00aeef;
 }
 
-.input-text button {
+.input-text .submit-button {
+  transition: all 0.2s ease;
   color: white;
   background-color: #00aeef;
   border: none;
   box-shadow: 0px 0px 5px 1px #ccc;
   padding: 10px;
   border-radius: 20px;
+}
+
+.input-text .submit-button:hover {
+  transform: scale(1.2);
+}
+
+.input-text .submit-button:active {
+  transition: none;
+  transform: scale(1);
+}
+
+.footer {
+  width: 100%;
+  height: 84px;
+  color: black;
+  background-color: white
 }

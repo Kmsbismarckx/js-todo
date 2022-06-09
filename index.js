@@ -6,8 +6,7 @@ const listLabel = list.querySelectorAll('label');
 const message = document.querySelector('.message');
 const form = document.querySelector('.input-text');
 const text = form.querySelector('input');
-let storage;
-let count = 0;
+const cache = [];
 
 /*function init() {
 
@@ -22,9 +21,10 @@ let count = 0;
 
 }*/
 
-function toLocal() {
-  storage = list.innerHTML;
-  localStorage.setItem('todo-list', storage);
+function toLocal(item) {
+  cache.push(item);
+  console.log(cache);
+  localStorage.setItem('todo-list', JSON.stringify(cache))
 }
 
 function onChange(item) {
@@ -38,8 +38,6 @@ function onChange(item) {
   deleteButton.addEventListener('click', function() {
     item.remove();
   })
-  
-  toLocal();
 }
 
 form.addEventListener('submit', function (evt) {
@@ -52,6 +50,6 @@ form.addEventListener('submit', function (evt) {
   onChange(clone);
   list.append(clone);
   text.value = '';
-  toLocal();
+  toLocal(clone);
 })
 /*init();*/
