@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-family:  sans-serif;
+  background-color: #eee;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.header {
+  height: 80px;
+  box-shadow: 0px 1px 1px 0px #ccc;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.header-logo img {
+  height: 80px;
+}
+
+.list {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  color: white;
+}
+
+.list.complete {
+  opacity: 0.5;
+}
+
+.checklist-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid;
+  background-color: #00aeef;
+  opacity: 1;
+  border-radius: 5px;
+  border-color: white;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px 0px #ccc;
+  font-size: 125%;
+  transition: all 0.6s ease;
+}
+
+.checklist-item label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-right: 10px;
+}
+
+.checklist-item button {
+  margin: 10px;
+  margin-right: 40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: url('delete_cross.svg') no-repeat 50% 50%;
+}
+
+.checklist-item input {
+  position: relative;
+  visibility: hidden;
+
+ }
+
+.checklist-item input::after {
+  box-sizing: content-box;
+  display: block;
+  position: absolute;
+  visibility: visible;
+  content: '1';
+  font-size: 0;
+  top: -15px;
+  left: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.6s ease;
+}
+
+.checklist-item input:checked::after {
+  box-sizing: border-box;
+  background-color: #00aeef;
+  box-shadow: 0px 0px 2px 2px #ccc;
+  border: 2px solid white;
+}
+
+.checklist-item.checked {
+  background-color: #99ff99;
+  color: #00aeef;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 50%;
+  height: 100px;
+  top: 50%;
+  left: 25%;
+  display: none;
+  background-color: #00aeef;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px #ccc;
+  transition: all 2s ease;
+}
+
+.message p {
+  color: #FFF;
+  font-size: 250%;
+  text-align: center;
+  align-self: center;
+}
+
+.message.complete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease;
+}
+
+.input-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.input-text input {
+  width: 50%;
+  height: 50px;
+  padding: 0px 20px;
+  margin-right: 50px;
+  color: #00aeef;
+  border: 1px solid;
+  border-color: #00aeef;
+  border-radius: 10px;
+}
+
+.input-text input:hover {
+  box-shadow: 0px 0px 5px 0px #00aeef;
+}
+
+.input-text input:focus {
+  border: 1px solid;
+  outline: none;
+  background-color: #ddd;
+  border-color: #00aeef;
+}
+
+.input-text button {
+  color: white;
+  background-color: #00aeef;
+  border: none;
+  box-shadow: 0px 0px 5px 1px #ccc;
+  padding: 10px;
+  border-radius: 20px;
+}
