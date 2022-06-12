@@ -6,30 +6,19 @@ const listLabel = list.querySelectorAll('label');
 const message = document.querySelector('.message');
 const form = document.querySelector('.input-text');
 const text = form.querySelector('input');
+const adviceItems = document.querySelectorAll('.advice-name');
 const cache = [];
 
-/*function init() {
-
-  if (localStorage.getItem('todo-list')) {
-    list.innerHTML = localStorage.getItem('todo-list');
-
-    for (let i = 0; i < listItems.length; i++) {
-      onChange(listItems[i])
-    }
-
-  }
-
-}*/
-
 function toLocal(item) {
-  cache.push(item);
-  console.log(cache);
-  localStorage.setItem('todo-list', JSON.stringify(cache))
+  let text = item.querySelector('span').textContent;
+  cache.push(localStorage.getItem('todo-list'))
+  cache.push(text);
+  localStorage.setItem('todo-list', cache);
 }
 
 function onChange(item) {
   const listCheckbox = item.querySelector('.checkbox');
-  const deleteButton = item.querySelector('.delete-button')
+  const deleteButton = item.querySelector('.delete-button');
 
   listCheckbox.addEventListener('change', function () {
     item.classList.toggle('checked');
@@ -48,8 +37,42 @@ form.addEventListener('submit', function (evt) {
   let description = clone.querySelector('span');
   description.textContent = itemText;
   onChange(clone);
+  toLocal(clone);
   list.append(clone);
   text.value = '';
-  toLocal(clone);
 })
+
+function init() {
+
+  function adviceChange(item) {
+    const adviceCheckbox = item.querySelector('.advice-item__checkbox');
+
+    item.addEventListener('change', function() {
+      item.classList.toggle('checked');
+    })
+  }
+
+  for (let i = 0; i < adviceItems.length; i++) {
+    adviceChange(adviceItems[i]);
+  }
+
+  /*let temp = localStorage.getItem('todo-list');
+  if (temp !== []) {
+    temp = temp.split(',');
+
+    for (let item of temp) {
+      let memItem = newItemTemplate.cloneNode(true)
+      let memDescription = memItem.querySelector('span');
+      memDescription.textContent = item;
+      list.append(memItem);
+      onChange(memItem);
+    }
+  }*/
+}
+
+init()
+
+
+
+
 /*init();*/

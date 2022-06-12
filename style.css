@@ -1,24 +1,31 @@
+@font-face {
+  font-family: 'Yota Digit';
+  src: url('YotaDigit-Regular.otf');
+}
+
 body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family:  sans-serif;
-  background-color: #eee;
+  font-family: 'Yota Digit', sans-serif;
+  font-weight: 600;
 }
 
-.container {
-  max-width: 1080px;
-  margin: 0 auto;
-}
+
 
 .header {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   height: 80px;
   box-shadow: 0px 1px 1px 0px #ccc;
   margin-bottom: 20px;
   background-color: white;
+  z-index: 2;
 }
 
 .header-logo img {
@@ -70,6 +77,64 @@ body {
   background-size: 50px;
 }
 
+.work-links .iknow {
+  background: white url('iknow_logo.svg') no-repeat 50%;
+  background-size: 50px;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 75%;
+}
+
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.advices {
+  float: left;
+  width: 250px;
+  z-index: 1;
+}
+
+.advice-item {
+  margin-bottom: 50px;
+  margin-left: 25px;
+  filter: drop-shadow(0px 0px 5px #ccc);
+}
+
+.advice-item__header {
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.advice-item__text {
+  margin: 0;
+  background-color: white;
+  width: inherit;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 40px;
+}
+
+.advice-item__text li {
+  box-sizing: border-box;
+  padding: 5px;
+  background-color: inherit;
+}
+
 .list {
   display: flex;
   position: relative;
@@ -85,13 +150,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid;
+  width: 100%;
+  padding: 10px 20px;
   box-sizing: border-box;
   background-color: #00aeef;
   border-radius: 25px;
   border-color: white;
   box-sizing: border-box;
-  width: 100%;
   margin-bottom: 20px;
   box-shadow: 0px 2px 5px 0px #ccc;
   font-size: 125%;
@@ -100,25 +165,25 @@ body {
 
 .checklist-item span {
   flex-wrap: wrap;
+  flex-grow: 2;
   box-sizing: border-box;
-  display: inline-block;
+  display: block;
   word-wrap: break-word;
-  max-width: 850px;
+  max-width: 90%;
+  min-width: 50%;
 }
-
 .checklist-item label {
   display: flex;
-  width: 990px;
+  flex-grow: 2;
+  width: 85%;
   justify-content: space-between;
   align-items: center;
-  padding: 40px;
   box-sizing: border-box;
   margin-right: 10px;
 }
 
 .checklist-item button {
-  margin: 10px;
-  margin-right: 40px;
+  padding: 0;
   width: 40px;
   height: 40px;
   border: none;
@@ -128,6 +193,8 @@ body {
 .checklist-item input {
   position: relative;
   visibility: hidden;
+  width: 40px;
+  height: 40px;
 
  }
 
@@ -136,9 +203,9 @@ body {
   display: block;
   position: absolute;
   visibility: visible;
-  content: '1';
+  content: '';
   font-size: 0;
-  top: -15px;
+  top: 0px;
   left: 0px;
   width: 40px;
   height: 40px;
@@ -158,6 +225,29 @@ body {
 .checklist-item.checked {
   background-color: #99ff99;
   color: #00aeef;
+}
+
+.delete-button:hover {
+  animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.advice-item__checkbox {
+  display: none;
+}
+
+.advice-name.checked {
+  text-decoration: line-through;
+  text-decoration-color: red;
 }
 
 .message {
@@ -197,12 +287,15 @@ body {
   margin-bottom: 50px;
 }
 .input-text input {
+  font-family: 'Yota Digit';
+  font-weight: 600;
   width: 50%;
   height: 50px;
   padding: 0px 20px;
   margin-right: 50px;
   color: #00aeef;
   border: 1px solid;
+  box-shadow: 0px 0px 5px 1px #ccc;
   border-color: #00aeef;
   border-radius: 10px;
 }
@@ -219,6 +312,10 @@ body {
 }
 
 .input-text .submit-button {
+  font-family: 'Yota Digit';
+  font-weight: 600;
+  width: 120px;
+  box-sizing: border-box;
   transition: all 0.2s ease;
   color: white;
   background-color: #00aeef;

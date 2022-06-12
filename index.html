@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Открытие смены</title>
+    <title>Помощник</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -11,33 +11,123 @@
         <img src="logo_yota.svg" alt="YOTA">
       </div>
       <div class="work-links">
-        <a class="crm" target="_blank" href="https://tpcrm.yotateam.com">CRM</a>
-        <a class="hotline" target="_blank"
-          href="https://www.yota.ru/hotline-retail">Hotline</a>
-        <a class="tables"
+        <a class="crm" title="CRM" target="_blank" href="https://tpcrm.yotateam.com">CRM
+        </a>
+        <a class="hotline" title="HOTLINE" target="_blank"
+          href="https://www.yota.ru/hotline-retail">Hotline
+        </a>
+        <a class="iknow" title="IKNOW" target="_blank"
+          href="https://iknow.yotateam.com/pages/viewpage.action?pageId=29753733">IKNOW
+        </a>
+        <a class="tables" title="ЕЖЕДНЕВНЫЙ ОТЧЕТ"
           href="https://docs.google.com/spreadsheets/d/1NzylgflxeRipP5cMJOtD2PywmbhLs2cvb9yEmC9vMzA/edit?pli=1#gid=0" target="_blank">Ежедневный отчет
         </a>
-        <a class="location" target="_blank"
-          href="https://cc-gis.yotateam.com/Account/LogOn?ReturnUrl=%2f">Yota Gis</a>
+        <a class="location" title="КАРТА ПОКРЫТИЯ" target="_blank"
+          href="https://cc-gis.yotateam.com/Account/LogOn?ReturnUrl=%2f">Yota Gis
+        </a>
       </div>
     </header>
-    <div class="container">
-      <div class="list"></div>
-      <template id="checklist-template">
-        <div class="checklist-item">
-          <label>
-            <span></span>
-            <input class="checkbox" type="checkbox" name="" value="">
-          </label>
-          <button class="delete-button" type="button" name="button"></button>
-        </div>
-      </template>
-      <form class="input-text"  method='post'>
-        <input type="text" name="new-task" placeholder="Новая задача..." required>
-        <button class='submit-button' type="submit" name="button">Новая задача</button>
-      </form>
-    </div>
+    <div class="main">
 
+      <div class="advices">
+        <div class="advice-item">
+          <div class="advice-item__header">
+            Откытие Смены
+          </div>
+          <ol class="advice-item__text">
+            <li>
+              <label class="advice-name" >Включить свет
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Открыть смену в YotaForce
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Прикрепить отчет о закрытии смены и кассовый ордер
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Сделать скан отчета об открытии/закрытии смены
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Отправить скан в outlook
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Открыть смену в 1С
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+          </ol>
+        </div>
+
+        <div class="advice-item">
+          <div class="advice-item__header">
+            Закрытие Смены
+          </div>
+          <ol class="advice-item__text">
+            <li>
+              <label class="advice-name" >Посчитать деньги
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Записать в таблицу - "ПОДСЧЕТ ДЕНЕГ!!!!"
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Закрытие смены в 1С
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Сделать отчет без гашения
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Дальше действовань по инструкциям 1С
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+            <li>
+              <label class="advice-name" >Закрыть смену в YotaForce
+                <input class="advice-item__checkbox" type="checkbox" name="" value="">
+              </label>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="wrapper">
+          <div class="list"></div>
+          <template id="checklist-template">
+            <div class="checklist-item">
+              <label>
+                <span></span>
+                <input class="checkbox" type="checkbox" name="" value="">
+              </label>
+              <button class="delete-button" type="button" name="button"></button>
+            </div>
+          </template>
+          <form class="input-text"  method='post'>
+            <input type="text" name="new-task" placeholder="Новая задача..." required>
+            <button class='submit-button' type="submit" name="button">Новая задача</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
     <script type="text/javascript" src="index.js">
     </script>
   </body>
