@@ -6,15 +6,19 @@ const listLabel = list.querySelectorAll('label');
 const message = document.querySelector('.message');
 const form = document.querySelector('.input-text');
 const text = form.querySelector('input');
-const adviceItems = document.querySelectorAll('.advice-name');
+const adviceNames = document.querySelectorAll('.advice-name')
+const adviceItems1 = document.querySelector('.advice-item-1');
+const adviceNames1 = adviceItems1.querySelectorAll('.advice-name');
+const adviceItems2 = document.querySelector('.advice-item-2')
+const adviceNames2 = adviceItems2.querySelectorAll('.advice-name');
 const cache = [];
 
-function toLocal(item) {
+/*function toLocal(item) {
   let text = item.querySelector('span').textContent;
   cache.push(localStorage.getItem('todo-list'))
   cache.push(text);
   localStorage.setItem('todo-list', cache);
-}
+}*/
 
 function onChange(item) {
   const listCheckbox = item.querySelector('.checkbox');
@@ -37,24 +41,48 @@ form.addEventListener('submit', function (evt) {
   let description = clone.querySelector('span');
   description.textContent = itemText;
   onChange(clone);
-  toLocal(clone);
   list.append(clone);
   text.value = '';
 })
 
 function init() {
 
-  function adviceChange(item) {
-    const adviceCheckbox = item.querySelector('.advice-item__checkbox');
-
-    item.addEventListener('change', function() {
-      item.classList.toggle('checked');
+  adviceNames.forEach((name) => {
+    const adviceCheckbox = name.querySelector('.advice-item__checkbox');
+    name.addEventListener('change', () => {
+      name.classList.toggle('checked');
     })
+  });
+
+  //for (let i = 0; i < adviceNames.length; i++) {
+  //  adviceNameChange(adviceNames[i]);
+  //}
+
+  function adviceCheck(value) {
+    const adviceNameTemp = value.querySelectorAll('.advice-name');
+    const arr = [];
+    adviceNameTemp.forEach((item) => {
+      arr.push(item.querySelector('.advice-item__checkbox'))
+    });
+    arr.forEach((item) => {
+      item.addEventListener('change', (item) => {
+      if (arr.filter((item) => (item.checked)).length === arr.length) {
+        value.style.backgroundColor = '#00aeef';
+      } else {
+        value.style.backgroundColor = 'white';
+      }
+    });
+  });
+
+
+    /*const adviceCheckbox = name.querySelectorAll('.advice-item__checkbox');
+    adviceCheckbox.forEach((item) => {
+      console.log(item.checked)
+    });*/
   }
 
-  for (let i = 0; i < adviceItems.length; i++) {
-    adviceChange(adviceItems[i]);
-  }
+  adviceCheck(adviceItems1);
+  adviceCheck(adviceItems2);
 
   /*let temp = localStorage.getItem('todo-list');
   if (temp !== []) {
@@ -71,8 +99,3 @@ function init() {
 }
 
 init()
-
-
-
-
-/*init();*/
