@@ -28,8 +28,12 @@ body {
   z-index: 2;
 }
 
-.header-logo img {
+.header-logo  {
   height: 80px;
+}
+
+.header-logo img {
+  height: 100%;
 }
 
 .work-links {
@@ -83,7 +87,7 @@ body {
 }
 
 .work-links .study {
-  background: white url('img/yota-study_logo.svg') no-repeat 50%;
+  background: white url('img/js_study.png') no-repeat 50%;
   background-size: contain;
 }
 
